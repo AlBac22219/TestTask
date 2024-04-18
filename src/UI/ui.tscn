@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnngjpxr6f8s2"]
+
+[ext_resource type="Theme" uid="uid://dbkm6s781j0da" path="res://src/UI/Main_theme.tres" id="1_8h3ru"]
+[ext_resource type="Script" path="res://src/UI/ui.gd" id="2_jvdel"]
+[ext_resource type="Texture2D" uid="uid://54dfykum7y1j" path="res://assets/textures/UI/inventory_ui_player_back.png" id="3_3njry"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27uu4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sllwi"]
+
+[node name="UI" type="Control" node_paths=PackedStringArray("now_key_label", "now_hp_label", "max_hp_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_8h3ru")
+script = ExtResource("2_jvdel")
+now_key_label = NodePath("Keys_And_hp_panel/VBoxContainer/Keys_hbox_container/Now_keys_label")
+now_hp_label = NodePath("Keys_And_hp_panel/VBoxContainer/Hp_hbox_container/Now_hp_label")
+max_hp_label = NodePath("Keys_And_hp_panel/VBoxContainer/Hp_hbox_container/Max_hp_label")
+
+[node name="Keys_And_hp_panel" type="NinePatchRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.564706)
+custom_minimum_size = Vector2(256, 160)
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 160.0
+texture = ExtResource("3_3njry")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Keys_And_hp_panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -76.0
+offset_right = 123.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Keys_hbox_container" type="HBoxContainer" parent="Keys_And_hp_panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Keys_label" type="Label" parent="Keys_And_hp_panel/VBoxContainer/Keys_hbox_container"]
+layout_mode = 2
+text = "KEYS:
+"
+
+[node name="VSeparator" type="VSeparator" parent="Keys_And_hp_panel/VBoxContainer/Keys_hbox_container"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_27uu4")
+
+[node name="Now_keys_label" type="Label" parent="Keys_And_hp_panel/VBoxContainer/Keys_hbox_container"]
+layout_mode = 2
+
+[node name="Hp_hbox_container" type="HBoxContainer" parent="Keys_And_hp_panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="HP_label" type="Label" parent="Keys_And_hp_panel/VBoxContainer/Hp_hbox_container"]
+layout_mode = 2
+text = "HP:
+"
+
+[node name="VSeparator" type="VSeparator" parent="Keys_And_hp_panel/VBoxContainer/Hp_hbox_container"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_sllwi")
+
+[node name="Now_hp_label" type="Label" parent="Keys_And_hp_panel/VBoxContainer/Hp_hbox_container"]
+layout_mode = 2
+
+[node name="Parse_label" type="Label" parent="Keys_And_hp_panel/VBoxContainer/Hp_hbox_container"]
+layout_mode = 2
+text = "/"
+
+[node name="Max_hp_label" type="Label" parent="Keys_And_hp_panel/VBoxContainer/Hp_hbox_container"]
+layout_mode = 2

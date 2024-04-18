@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://ceyey5c8t1exu"]
+
+[ext_resource type="Script" path="res://src/Resources/Inventory_item.gd" id="1_7cn2g"]
+[ext_resource type="Texture2D" uid="uid://v6410j6dqt8v" path="res://assets/textures/Items/apple.png" id="2_vqxve"]
+
+[resource]
+script = ExtResource("1_7cn2g")
+texture = ExtResource("2_vqxve")
+name = "APPLE"
+description = "TEXT_OF_APPLE"
+max_quantity = 1
+item_type = 1
+heal = 2
+max_hp_buff = 0

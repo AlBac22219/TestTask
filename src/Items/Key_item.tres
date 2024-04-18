@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://c3r7s2q3gwg0f"]
+
+[ext_resource type="Script" path="res://src/Resources/Inventory_item.gd" id="1_rytxj"]
+[ext_resource type="Texture2D" uid="uid://b8ae3q76iyj7b" path="res://assets/textures/Items/key.png" id="2_tx7ew"]
+
+[resource]
+script = ExtResource("1_rytxj")
+texture = ExtResource("2_tx7ew")
+name = "KEY"
+description = ""
+max_quantity = 1
+item_type = 0
+heal = 0
+max_hp_buff = 0

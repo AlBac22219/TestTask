@@ -1,0 +1,41 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dbkm6s781j0da"]
+
+[ext_resource type="FontFile" uid="uid://bj7ex17y7rlug" path="res://assets/Fonts/Softie Cyr.ttf" id="1_bimgo"]
+[ext_resource type="Texture2D" uid="uid://ckt5vhkrhh3bc" path="res://assets/textures/UI/inventory_ui_alt.png" id="1_iy3tn"]
+[ext_resource type="Texture2D" uid="uid://cp35oaceneius" path="res://assets/textures/UI/inventory_ui.png" id="2_8ct5b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1rgte"]
+texture = ExtResource("1_iy3tn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8f435"]
+texture = ExtResource("2_8ct5b")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kqcte"]
+texture = ExtResource("1_iy3tn")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_msq1f"]
+texture = ExtResource("2_8ct5b")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[resource]
+default_font = ExtResource("1_bimgo")
+default_font_size = 38
+Button/styles/disabled = SubResource("StyleBoxTexture_1rgte")
+Button/styles/focus = SubResource("StyleBoxTexture_8f435")
+Button/styles/hover = SubResource("StyleBoxTexture_kqcte")
+Button/styles/normal = SubResource("StyleBoxTexture_msq1f")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://1nfv54fedgo4"]
+
+[ext_resource type="Script" path="res://src/Resources/Inventory_item.gd" id="1_sv6lp"]
+[ext_resource type="Texture2D" uid="uid://vis8kcxhxony" path="res://assets/textures/Items/Chili_peper.png" id="2_x24p0"]
+
+[resource]
+script = ExtResource("1_sv6lp")
+texture = ExtResource("2_x24p0")
+name = "CHILI_PEPPER"
+description = "CHILI_PEPPER_DESCRIPTION"
+max_quantity = 1
+item_type = 1
+heal = -1
+max_hp_buff = 0

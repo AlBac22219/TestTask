@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck4t6e4frc207"]
+
+[ext_resource type="Script" path="res://src/Pick_object/pickable_object.gd" id="1_dbwht"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e0vjy"]
+radius = 18.0278
+
+[node name="pickable_object" type="CharacterBody2D" node_paths=PackedStringArray("icon_sprite")]
+script = ExtResource("1_dbwht")
+icon_sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+
+[node name="pick_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pick_area"]
+shape = SubResource("CircleShape2D_e0vjy")
+
+[connection signal="body_entered" from="pick_area" to="." method="_on_pick_area_body_entered"]
+[connection signal="body_exited" from="pick_area" to="." method="_on_pick_area_body_exited"]

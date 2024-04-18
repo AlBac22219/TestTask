@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dwk4gkdlrq0kw"]
+
+[ext_resource type="Script" path="res://src/Resources/Inventory_item.gd" id="1_3loic"]
+[ext_resource type="Texture2D" uid="uid://cgu6d734uryqi" path="res://assets/textures/Items/Olives.png" id="2_m7j3h"]
+
+[resource]
+script = ExtResource("1_3loic")
+texture = ExtResource("2_m7j3h")
+name = "OLIVES"
+description = "OLIVES_DESCRIPTION"
+max_quantity = 1
+item_type = 1
+heal = 0
+max_hp_buff = -10

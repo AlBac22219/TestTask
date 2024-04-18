@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://6qrinvjgahfp"]
+
+[ext_resource type="Script" path="res://src/Resources/Inventory_item.gd" id="1_grbv7"]
+[ext_resource type="Texture2D" uid="uid://iawry40g6xk0" path="res://assets/textures/Items/amulet.png" id="2_lvaij"]
+
+[resource]
+script = ExtResource("1_grbv7")
+texture = ExtResource("2_lvaij")
+name = "AMULET"
+description = "AMULET_DESCRIPTION"
+max_quantity = 1
+item_type = 5
+heal = -9
+max_hp_buff = 1

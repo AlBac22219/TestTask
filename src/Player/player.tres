@@ -1,0 +1,29 @@
+[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://cbgyg7ye2pqye"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_770md"]
+parameter_name = "Hair_color"
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform vec4 Hair_color : source_color;
+
+
+
+void vertex() {
+// ColorParameter:2
+	vec4 n_out2p0 = Hair_color;
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out2p0.xyz);
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/vertex/2/node = SubResource("VisualShaderNodeColorParameter_770md")
+nodes/vertex/2/position = Vector2(0, 60)
+nodes/vertex/connections = PackedInt32Array(2, 0, 0, 2)

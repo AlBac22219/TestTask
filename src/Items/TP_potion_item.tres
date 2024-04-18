@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bf6qcm70yof1e"]
+
+[ext_resource type="Script" path="res://src/Resources/Inventory_item.gd" id="1_sfvmt"]
+[ext_resource type="Texture2D" uid="uid://dipmeotidhnvk" path="res://assets/textures/Items/tp_potion.png" id="2_wp8gf"]
+
+[resource]
+script = ExtResource("1_sfvmt")
+texture = ExtResource("2_wp8gf")
+name = "TELEPORT_POTION"
+description = "TELEPORT_POTION_DESCRIPTION"
+max_quantity = 1
+item_type = 3
+heal = 0
+max_hp_buff = 0

@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0drd1l4c8mc"]
+
+[ext_resource type="Script" path="res://src/UI/inventory_slot.gd" id="1_2ineq"]
+[ext_resource type="Texture2D" uid="uid://d272fyeirqknp" path="res://assets/textures/UI/slot_texture.png" id="1_witil"]
+
+[node name="Inventory_slot" type="Button" node_paths=PackedStringArray("background", "icon_texture")]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1818.0
+offset_bottom = -978.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ineq")
+background = NodePath("Sprite2D")
+icon_texture = NodePath("Panel/TextureRect")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_witil")
+centered = false
+vframes = 2
+frame = 1
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 97.0
+offset_bottom = 96.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

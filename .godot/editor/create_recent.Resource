@@ -1,0 +1,2 @@
+InventoryItem
+Inventory
