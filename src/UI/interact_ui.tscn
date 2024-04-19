@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsx6a6j3g0uui"]
+[gd_scene load_steps=4 format=3 uid="uid://bsx6a6j3g0uui"]
 
 [ext_resource type="Texture2D" uid="uid://cp35oaceneius" path="res://assets/textures/UI/inventory_ui.png" id="1_ak1pp"]
+[ext_resource type="Theme" uid="uid://dbkm6s781j0da" path="res://src/UI/Main_theme.tres" id="1_dbgdd"]
 [ext_resource type="Script" path="res://src/UI/interact_ui.gd" id="1_p3akm"]
 
 [node name="Interact_ui" type="Control" node_paths=PackedStringArray("interact_label", "life_timer")]
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_dbgdd")
 script = ExtResource("1_p3akm")
 interact_label = NodePath("NinePatchRect/Interact_label")
 life_timer = NodePath("Life_timer")
@@ -47,6 +49,7 @@ theme_override_font_sizes/bold_font_size = 32
 theme_override_font_sizes/italics_font_size = 32
 theme_override_font_sizes/bold_italics_font_size = 32
 theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
 text = "INTERACT_LABEL_TEXT"
 fit_content = true
 

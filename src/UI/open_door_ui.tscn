@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://dikl826kdhvme"]
+
+[ext_resource type="Theme" uid="uid://dbkm6s781j0da" path="res://src/UI/Main_theme.tres" id="1_t68e8"]
+[ext_resource type="Texture2D" uid="uid://cp35oaceneius" path="res://assets/textures/UI/inventory_ui.png" id="1_xqeak"]
+[ext_resource type="Script" path="res://src/UI/open_door_ui.gd" id="2_84t1a"]
+
+[node name="Open_door_ui" type="Control" node_paths=PackedStringArray("yes_button")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_t68e8")
+script = ExtResource("2_84t1a")
+yes_button = NodePath("NinePatchRect/Yes_button")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(1024, 512)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xqeak")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+custom_minimum_size = Vector2(1024, 256)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "[center]Путь вам преграждает запертая дверь.
+Вы можете потратить ключ, чтобы открыть её.
+Но желаете-ли вы потратить столь драгоценный ключ?
+"
+fit_content = true
+
+[node name="Yes_button" type="Button" parent="NinePatchRect"]
+custom_minimum_size = Vector2(256, 68)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -101.0
+offset_right = 306.0
+offset_bottom = -33.0
+grow_vertical = 0
+text = "Да"
+
+[node name="No_button" type="Button" parent="NinePatchRect"]
+custom_minimum_size = Vector2(256, 68)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -306.0
+offset_top = -101.0
+offset_right = -50.0
+offset_bottom = -33.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Нет"
+
+[connection signal="pressed" from="NinePatchRect/Yes_button" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/No_button" to="." method="_on_no_button_pressed"]

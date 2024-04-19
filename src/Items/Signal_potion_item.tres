@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_76pqg")
 texture = ExtResource("2_v41u1")
-name = "SIGNAL_POTION"
-description = "SIGNAL_POTION_DESCRIPTION"
+name = "Зелье тревоги"
+description = "Таинственным образом это зелье возвращает дома на неопределенный срок назад. Но почему-то всегда двери становятся закрытыми. Это влияет только на двери, но не на предметы внутри."
 max_quantity = 1
 item_type = 2
 heal = 0

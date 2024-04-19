@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnef822l33dag"]
+
+[ext_resource type="Script" path="res://src/Scenes/house_1_interier.gd" id="1_m8p41"]
+[ext_resource type="PackedScene" uid="uid://ciuurxk1mermc" path="res://src/Scenes/tile_map.tscn" id="2_v0v4j"]
+[ext_resource type="PackedScene" uid="uid://ck4t6e4frc207" path="res://src/Pick_object/pickable_object.tscn" id="4_7dhsp"]
+[ext_resource type="PackedScene" uid="uid://c8k2gdved0hyp" path="res://src/Scenes/exit_from_home_trigger.tscn" id="4_eklio"]
+[ext_resource type="Resource" uid="uid://6qrinvjgahfp" path="res://src/Items/Amulet_item.tres" id="5_vjxk4"]
+[ext_resource type="Resource" uid="uid://c3r7s2q3gwg0f" path="res://src/Items/Key_item.tres" id="6_qws3l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0nog"]
+size = Vector2(32, 15)
+
+[node name="house1_interier" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_m8p41")
+name_of_scene = "house_1_interier"
+
+[node name="Enterance_markers" type="Node2D" parent="."]
+
+[node name="street" type="Marker2D" parent="Enterance_markers"]
+position = Vector2(83, 84)
+
+[node name="TileMap" parent="." instance=ExtResource("2_v0v4j")]
+layer_2/tile_data = PackedInt32Array(393221, 131080, 8, 327685, 8, 9, 327686, 65544, 8, 327687, 65544, 8, 327688, 131080, 8, 262152, 8, 9, 262151, 65544, 7, 262150, 65544, 7, 262149, 65544, 7, 262148, 65544, 7, 327684, 131080, 9, 327683, 65544, 8, 327682, 65544, 8, 262146, 65544, 7, 262147, 65544, 7, 196610, 65544, 7, 196611, 65544, 7, 196612, 65544, 7, 196613, 65544, 7, 196614, 65544, 7, 196615, 65544, 7, 196616, 8, 11, 393220, 8, 8, 65544, 131080, 6, 131080, 131080, 7, 131079, 65544, 7, 131078, 65544, 7, 131077, 65544, 7, 131076, 65544, 7, 131075, 65544, 7, 131074, 65544, 7, 65540, 65544, 6, 65541, 65544, 6, 65542, 65544, 6, 65543, 65544, 6, 65539, 65544, 6, 65538, 65544, 6, 327681, 8, 8, 262145, 8, 7, 196609, 8, 7, 131073, 8, 7, 65537, 8, 6)
+layer_4/tile_data = PackedInt32Array(131081, 196616, 19, 65545, 8, 19, 9, 131080, 18, 8, 327688, 18, 7, 327688, 18, 6, 327688, 18, 5, 327688, 18, 4, 65544, 18, 3, 65544, 18, 2, 65544, 18, 1, 327688, 18, 393217, 327688, 18, 393218, 65544, 18, 393219, 393224, 18, 393222, 262152, 18, 393223, 65544, 20, 393224, 65544, 20, 393225, 131080, 20, 327689, 196616, 19, 393216, 8, 20, 327680, 8, 19, 262144, 196616, 19, 196608, 8, 19, 131072, 196616, 19, 65536, 196616, 19, 0, 8, 18, 196617, 196616, 19, 262153, 196616, 19)
+layer_5/tile_data = PackedInt32Array(196611, 196615, 3, 65538, 131080, 25, 65540, 131080, 25, 65539, 196616, 23, 65544, 65543, 3, 131080, 458760, 24)
+
+[node name="Exit_from_home_trigger" parent="." instance=ExtResource("4_eklio")]
+position = Vector2(79, 102)
+name_of_scene = "street"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit_from_home_trigger"]
+position = Vector2(1, 2.5)
+shape = SubResource("RectangleShape2D_j0nog")
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="pickable_object" parent="Items" instance=ExtResource("4_7dhsp")]
+z_index = 1
+position = Vector2(63, 55)
+item_type = ExtResource("5_vjxk4")
+quantity = 1
+
+[node name="pickable_object2" parent="Items" instance=ExtResource("4_7dhsp")]
+z_index = 1
+position = Vector2(137, 39)
+item_type = ExtResource("6_qws3l")
+quantity = 1

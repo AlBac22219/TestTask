@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8k2gdved0hyp"]
+
+[ext_resource type="Script" path="res://src/Scenes/exit_from_home_trigger.gd" id="1_stfbo"]
+
+[node name="Exit_from_home_trigger" type="Area2D"]
+script = ExtResource("1_stfbo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

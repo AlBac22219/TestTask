@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_grbv7")
 texture = ExtResource("2_lvaij")
-name = "AMULET"
-description = "AMULET_DESCRIPTION"
+name = "Амулет"
+description = "Жуткий и старый амулет. Сильно вредит использовавшему его существу. Уменьшает количество здоровья на 9, но увеличивает максимальное здоровье на 1."
 max_quantity = 1
 item_type = 5
 heal = -9

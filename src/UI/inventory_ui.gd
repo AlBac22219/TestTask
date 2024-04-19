@@ -15,9 +15,6 @@ func _ready():
 	inventory.connect("update_inventory", update)
 	create_table()
 
-func _process(delta):
-	pass
-
 func _input(event):
 	if event.is_action_pressed("open_inventory"):
 		get_parent().visible = !get_parent().visible
@@ -32,7 +29,6 @@ func create_table():
 		slots.append(inst_inventory_slot_ui)
 		inst_inventory_slot_ui.connect("pressed_on_slot", select)
 		slots_grid_container.add_child(inst_inventory_slot_ui)
-		
 
 func update():
 	for i in range(min(inventory.slots.size(), slots.size())):
@@ -108,6 +104,8 @@ func use_item():
 			selected_slot = slots[selected_slot.id]
 			await update_components(selected_slot)
 		InventoryItem.item_types.CLOSING_POTION:
+			#Делаю
+			close_all_door()
 			inventory.use_item(selected_slot.id, 1)
 			await update()
 			selected_slot = slots[selected_slot.id]
@@ -117,6 +115,7 @@ func use_item():
 			await update()
 			selected_slot = slots[selected_slot.id]
 			await update_components(selected_slot)
+			Global.current_scene.tp_to_random_place()
 		InventoryItem.item_types.AMULETS:
 			Global.player.max_hp = Global.player.max_hp + selected_slot.item_type.item.max_hp_buff
 			Global.player.hp = Global.player.hp + selected_slot.item_type.item.heal
@@ -124,3 +123,19 @@ func use_item():
 			await update()
 			selected_slot = slots[selected_slot.id]
 			await update_components(selected_slot)
+
+func close_all_door():
+	var count_of_doors = get_tree().get_nodes_in_group("enter_door")
+	if count_of_doors.size()>0:
+		get_tree().call_group("enter_door", "close_door")
+	else:
+		var street: PackedScene = load("res://src/saved_scenes/street.tscn")
+		var inst_street = street.instantiate()
+		for i in inst_street.houses.get_children():
+			i.close_door()
+		var scene = PackedScene.new()
+		var result = scene.pack(inst_street)
+		if result == OK:
+			var error = ResourceSaver.save(scene, Global.path_to_save_scenes + "street.tscn")
+			if error != OK:
+				push_error("An error occurred while saving the scene to disk.")

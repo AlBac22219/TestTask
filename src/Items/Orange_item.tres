@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_gsqag")
 texture = ExtResource("2_rq5td")
-name = "ORANGE"
-description = "ORANGE_DESCRIPTION"
+name = "Апельсин"
+description = "Он не маленький. Он не гнилой. Но он ваш. Сочнейший апельсин. Восстанавливает 1 здоровье и увеличивает максимальное здоровье на 1."
 max_quantity = 1
 item_type = 1
 heal = 1

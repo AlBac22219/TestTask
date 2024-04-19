@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_3loic")
 texture = ExtResource("2_m7j3h")
-name = "OLIVES"
-description = "OLIVES_DESCRIPTION"
+name = "Оливки"
+description = "Оливки. Гроза охотников на демонов, любителей пицц и вас. Уменьшает максимальное количество здоровья на 10."
 max_quantity = 1
 item_type = 1
 heal = 0

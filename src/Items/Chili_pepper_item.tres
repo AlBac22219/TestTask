@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_sv6lp")
 texture = ExtResource("2_x24p0")
-name = "CHILI_PEPPER"
-description = "CHILI_PEPPER_DESCRIPTION"
+name = "Перец Чили"
+description = "Острый перец. Говорят, что те, кто съел данный перец начинали дышать огнем. Уменьшает здоровье пользователя на 1 единицу."
 max_quantity = 1
 item_type = 1
 heal = -1

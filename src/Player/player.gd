@@ -7,9 +7,10 @@ signal player_defeated
 @export_category("Nodes_inside_player")
 @export var anim_player: AnimationPlayer
 @export var drop_markers: Node2D
-@export var interact_ui: CanvasLayer
 @export_category("UI_And_inventory")
+@export var interact_ui: CanvasLayer
 @export var UI: Hp_and_keys_ui
+@export var open_door_interact_ui: CanvasLayer
 @export var inventory: Inventory
 @export_category("HP/Keys")
 @export var max_hp: int = 10:
@@ -22,7 +23,7 @@ var hp: int = 10:
 	set = set_hp,
 	get = get_hp
 
-const SPEED = 20.0
+const SPEED = 100.0
 const ACCELERATION = 400.0
 
 enum movement_states {LEFT, RIGHT, DOWN, UP}
@@ -30,7 +31,6 @@ var last_movement_state = movement_states.DOWN
 
 func _ready():
 	hp = max_hp
-	Global.player = self
 	update_ui.connect(UI.update_ui)
 	inventory.connect("droped_item", drop_item)
 	update_ui.emit()
@@ -114,9 +114,18 @@ func drop_item(item: InventorySlot):
 			get_parent().add_child(inst_pick_object)
 			break
 
-func change_interact_visibility():
-	interact_ui.visible = !interact_ui.visible
+func change_interact_visibility(new_visibility):
+	interact_ui.visible = new_visibility
 
 func change_interact_text(new_text: String):
-	var interact_ui: InteractUI = interact_ui.get_child(0)
-	interact_ui.change_interact_text(new_text)
+	var interact_ui_in_layer: InteractUI = interact_ui.get_child(0)
+	interact_ui_in_layer.change_interact_text(new_text)
+
+func change_open_door_visibility(visibility: bool):
+	open_door_interact_ui.get_child(0).set_paused(true)
+	open_door_interact_ui.visible = visibility
+
+
+func _on_open_door_ui_close_ui():
+	open_door_interact_ui.get_child(0).set_paused(false)
+	change_open_door_visibility(false)

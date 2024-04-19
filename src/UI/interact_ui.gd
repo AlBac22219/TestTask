@@ -9,10 +9,10 @@ class_name InteractUI
 var old_text: String = ""
 
 func change_interact_text(new_text: String):
-	interact_label.text = new_text
+	interact_label.text = "[center]" + new_text
 	get_parent().visible = true
 	life_timer.start(time_for_timer)
 
 
 func _on_life_timer_timeout():
-	get_parent().visible = !get_parent().visible
+	Global.player.change_interact_visibility(false)

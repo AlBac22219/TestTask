@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_sfvmt")
 texture = ExtResource("2_wp8gf")
-name = "TELEPORT_POTION"
-description = "TELEPORT_POTION_DESCRIPTION"
+name = "Зелье телепортации"
+description = "Зелье телепортации. Телепортирует выпевшего его человека в случайном направлении на случайное количество метров."
 max_quantity = 1
 item_type = 3
 heal = 0

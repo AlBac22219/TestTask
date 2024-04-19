@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("1_7cn2g")
 texture = ExtResource("2_vqxve")
-name = "APPLE"
-description = "TEXT_OF_APPLE"
+name = "Яблоко"
+description = "Красное и сочное яблоко. А главное - оно полезное. Восстанавливает 1 единицу здоровья съевшего его."
 max_quantity = 1
 item_type = 1
-heal = 2
+heal = 1
 max_hp_buff = 0

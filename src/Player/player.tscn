@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dsakdwb8e7d6x"]
+[gd_scene load_steps=24 format=3 uid="uid://dsakdwb8e7d6x"]
 
 [ext_resource type="Script" path="res://src/Player/player.gd" id="1_74mfp"]
 [ext_resource type="Texture2D" uid="uid://eimtaj4oawt3" path="res://assets/textures/Player/Body.png" id="1_ejglj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://bou2u4i4ntpqf" path="res://src/Player/Player_inventory.tres" id="2_rgtva"]
 [ext_resource type="Texture2D" uid="uid://dah3tgjhgb8ax" path="res://assets/textures/Player/Hair.png" id="3_e4ihs"]
 [ext_resource type="Texture2D" uid="uid://bvk04wq6e1ffw" path="res://assets/textures/Player/Armor.png" id="4_87gck"]
+[ext_resource type="PackedScene" uid="uid://dikl826kdhvme" path="res://src/UI/open_door_ui.tscn" id="7_lna1n"]
 [ext_resource type="PackedScene" uid="uid://bnngjpxr6f8s2" path="res://src/UI/ui.tscn" id="7_vmk2d"]
 [ext_resource type="PackedScene" uid="uid://buxa8xgcc73il" path="res://src/UI/inventory_ui.tscn" id="8_64cs2"]
 [ext_resource type="PackedScene" uid="uid://dc4ke3m61napm" path="res://src/Player/marker_for_drop.tscn" id="9_sidma"]
@@ -16,8 +17,8 @@ shader = ExtResource("2_hx1n0")
 shader_parameter/Hair_color = Color(0.47451, 0.356863, 0.282353, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xjnuh"]
-radius = 4.0
-height = 16.0
+radius = 5.0
+height = 10.0
 
 [sub_resource type="Animation" id="Animation_08c8l"]
 length = 0.001
@@ -399,7 +400,9 @@ _data = {
 "walk_up": SubResource("Animation_q87ap")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim_player", "drop_markers", "interact_ui", "UI") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim_player", "drop_markers", "interact_ui", "UI", "open_door_interact_ui") groups=["Player"]]
+y_sort_enabled = true
+collision_layer = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_74mfp")
@@ -407,9 +410,11 @@ anim_player = NodePath("AnimationPlayer")
 drop_markers = NodePath("Drop_markers")
 interact_ui = NodePath("Interact_UI")
 UI = NodePath("UI/UI")
+open_door_interact_ui = NodePath("Open_door_ui")
 inventory = ExtResource("2_rgtva")
 
 [node name="Node2D" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Body" type="Sprite2D" parent="Node2D"]
 y_sort_enabled = true
@@ -431,7 +436,7 @@ hframes = 8
 vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_xjnuh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -442,9 +447,15 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
+[node name="Open_door_ui" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Open_door_ui" parent="Open_door_ui" instance=ExtResource("7_lna1n")]
+
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="UI" instance=ExtResource("7_vmk2d")]
+[node name="UI" parent="UI" node_paths=PackedStringArray("owner_of_ui") instance=ExtResource("7_vmk2d")]
+owner_of_ui = NodePath("../..")
 
 [node name="Interact_UI" type="CanvasLayer" parent="."]
 visible = false
@@ -470,3 +481,5 @@ position = Vector2(0, -50)
 
 [node name="Marker_for_drop4" parent="Drop_markers" instance=ExtResource("9_sidma")]
 position = Vector2(35, 0)
+
+[connection signal="close_ui" from="Open_door_ui/Open_door_ui" to="." method="_on_open_door_ui_close_ui"]

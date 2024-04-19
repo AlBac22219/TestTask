@@ -48,4 +48,5 @@ func _on_pick_area_body_exited(body):
 
 func set_item_type(new_item_type: InventoryItem):
 	item_type = new_item_type
-	icon_sprite.texture = item_type.texture
+	if new_item_type:
+		icon_sprite.texture = item_type.texture

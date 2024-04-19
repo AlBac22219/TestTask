@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_8ik0h")
 texture = ExtResource("2_wj42h")
-name = "TOKEN"
-description = "TOKEN_DESCRIPTION"
+name = "Жетон"
+description = "Жетон с числом 14. Это не золотой куб, вам незачем его держать в инвентаре, да и использовать его не получится. Почему вы его ещё не выбросили?"
 max_quantity = 1
 item_type = 4
 heal = 0

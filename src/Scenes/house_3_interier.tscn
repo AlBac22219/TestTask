@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://br48x8uqgl7m7"]
+
+[ext_resource type="Script" path="res://src/Scenes/house_3_interier.gd" id="1_otlyk"]
+[ext_resource type="PackedScene" uid="uid://ciuurxk1mermc" path="res://src/Scenes/tile_map.tscn" id="1_uika0"]
+[ext_resource type="PackedScene" uid="uid://c8k2gdved0hyp" path="res://src/Scenes/exit_from_home_trigger.tscn" id="2_chxms"]
+[ext_resource type="PackedScene" uid="uid://ck4t6e4frc207" path="res://src/Pick_object/pickable_object.tscn" id="3_adh2h"]
+[ext_resource type="Resource" uid="uid://b0s1f506jcp3f" path="res://src/Items/Orange_item.tres" id="4_2prs2"]
+[ext_resource type="Resource" uid="uid://bf6qcm70yof1e" path="res://src/Items/TP_potion_item.tres" id="5_t6o10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3yt7"]
+size = Vector2(32, 16)
+
+[node name="house_3_interier" type="Node2D"]
+script = ExtResource("1_otlyk")
+name_of_scene = "house_3_interier"
+
+[node name="TileMap" parent="." instance=ExtResource("1_uika0")]
+layer_2/tile_data = PackedInt32Array(3801200, 8, 14, 3801201, 131080, 14, 3735666, 65544, 14, 3735667, 65544, 14, 3735668, 131080, 14, 3735663, 65544, 14, 3735662, 65544, 14, 3735661, 8, 14, 3735664, 131080, 15, 3735665, 8, 15, 3670125, 8, 13, 3604589, 8, 13, 3539053, 8, 13, 3473517, 8, 13, 3407981, 8, 13, 3342445, 8, 13, 3276909, 8, 12, 3276910, 65544, 12, 3276911, 65544, 12, 3276912, 65544, 12, 3276913, 65544, 12, 3276914, 65544, 12, 3276915, 65544, 12, 3276916, 131080, 12, 3342452, 131080, 13, 3407988, 131080, 13, 3473524, 131080, 13, 3539060, 131080, 13, 3604596, 131080, 13, 3670132, 131080, 13, 3670131, 65544, 13, 3670130, 65544, 13, 3670129, 65544, 13, 3670128, 65544, 13, 3670127, 65544, 13, 3670126, 65544, 13, 3604590, 65544, 13, 3407982, 65544, 13, 3342446, 65544, 13, 3473518, 65544, 13, 3539054, 65544, 13, 3604591, 65544, 13, 3604592, 65544, 13, 3539056, 65544, 13, 3604593, 65544, 13, 3604594, 65544, 13, 3604595, 65544, 13, 3539057, 65544, 13, 3539058, 65544, 13, 3473522, 65544, 13, 3473523, 65544, 13, 3539059, 65544, 13, 3539055, 65544, 13, 3473521, 65544, 13, 3407984, 65544, 13, 3407985, 65544, 13, 3407986, 65544, 13, 3407987, 65544, 13, 3473520, 65544, 13, 3473519, 65544, 13, 3407983, 65544, 13, 3342447, 65544, 13, 3342448, 65544, 13, 3342450, 65544, 13, 3342451, 65544, 13, 3342449, 65544, 13)
+layer_4/tile_data = PackedInt32Array(3801202, 262152, 18, 3801203, 327688, 18, 3801204, 65544, 18, 3801205, 131080, 20, 3735669, 196616, 19, 3670133, 131080, 19, 3604597, 8, 19, 3539061, 8, 19, 3473525, 131080, 19, 3407989, 196616, 19, 3342453, 131080, 19, 3276917, 8, 19, 3211381, 131080, 18, 3211380, 65544, 20, 3211379, 65544, 20, 3211378, 327688, 18, 3211377, 65544, 18, 3211376, 65544, 20, 3211375, 65544, 18, 3211374, 327688, 18, 3211373, 65544, 18, 3211372, 8, 18, 3276908, 8, 19, 3342444, 196616, 19, 3407980, 8, 19, 3473516, 131080, 19, 3539052, 196616, 19, 3604588, 8, 19, 3670124, 131080, 19, 3735660, 196616, 19, 3801196, 8, 20, 3801197, 65544, 18, 3801198, 327688, 18, 3801199, 393224, 18)
+layer_5/tile_data = PackedInt32Array(3276909, 131080, 25, 3276916, 131080, 25, 3276910, 196616, 23, 3276915, 196616, 23, 3276911, 458760, 24, 3276912, 458760, 24, 3276913, 458760, 24, 3276914, 458760, 24)
+
+[node name="Enterance_markers" type="Node2D" parent="."]
+
+[node name="street" type="Marker2D" parent="Enterance_markers"]
+position = Vector2(1808, 917)
+
+[node name="Exit_from_home_trigger" parent="." instance=ExtResource("2_chxms")]
+position = Vector2(1808, 917)
+name_of_scene = "street"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit_from_home_trigger"]
+position = Vector2(0, 19)
+shape = SubResource("RectangleShape2D_b3yt7")
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="pickable_object" parent="Items" instance=ExtResource("3_adh2h")]
+position = Vector2(1784, 808)
+item_type = ExtResource("4_2prs2")
+quantity = 1
+
+[node name="pickable_object2" parent="Items" instance=ExtResource("3_adh2h")]
+position = Vector2(1800, 808)
+item_type = ExtResource("4_2prs2")
+quantity = 1
+
+[node name="pickable_object3" parent="Items" instance=ExtResource("3_adh2h")]
+position = Vector2(1816, 808)
+item_type = ExtResource("5_t6o10")
+quantity = 1
+
+[node name="pickable_object4" parent="Items" instance=ExtResource("3_adh2h")]
+position = Vector2(1832, 808)
+item_type = ExtResource("4_2prs2")
+quantity = 1
